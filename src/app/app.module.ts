@@ -11,19 +11,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BeersComponent } from './components/beers/beers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BeersService } from './services/beers.service';
+import { ApodComponent } from './components/apod/apod.component';
+import { Ng5SliderModule } from 'ng5-slider';
+
 @NgModule({
   declarations: [
     AppComponent,
     CalculatorComponent,
     DisplayComponent,
     KeyboardComponent,
-    BeersComponent
+    BeersComponent,
+    ApodComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng5SliderModule
   ],
   providers: [
     CalculatorService,

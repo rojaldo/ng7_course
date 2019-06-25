@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3">{{result.title}}</h1>
+    <p class="lead">{{result.date}}</p>
+    <hr class="my-2">
+    <div class="container-fluid text-center">
+        <img [src]="result.url" alt="">
+      
+    </div>
+    <p>{{result.explanation}}</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" [href]="result.hdurl" role="button">{{result.title}}</a>
+    </p>
+  </div>
+</div>
+<p>
+  {{result | json}}
+</p>
