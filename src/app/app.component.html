@@ -1,2 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-calculator></app-calculator>
+<ngb-tabset type="pills">
+    <ngb-tab title="Calculator">
+        <ng-template ngbTabContent>
+            <app-calculator></app-calculator>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Beers">
+        <ng-template ngbTabContent>
+            <app-beers></app-beers>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

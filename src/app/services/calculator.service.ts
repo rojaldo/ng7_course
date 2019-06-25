@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 
 enum State { init, firstFigure, secondFigure, result }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CalculatorService {
 
   display = '';
