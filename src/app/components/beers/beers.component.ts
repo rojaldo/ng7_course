@@ -42,6 +42,7 @@ export class BeersComponent implements OnInit {
     for (const json of this.result) {
       this.beers.push(new Beer(json));
     }
+    this.vBeers = this.beers;
     this.responded = true;
   }
 

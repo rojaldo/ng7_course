@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BeersService } from './services/beers.service';
 import { ApodComponent } from './components/apod/apod.component';
 import { Ng5SliderModule } from 'ng5-slider';
+import { AlcoholPipe } from './pipes/alcohol.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Ng5SliderModule } from 'ng5-slider';
     DisplayComponent,
     KeyboardComponent,
     BeersComponent,
-    ApodComponent
+    ApodComponent,
+    AlcoholPipe
   ],
   imports: [
     BrowserModule,
