@@ -1,20 +1,28 @@
 <div class="container">
   <div class="container-fluid text-center">
-      <ngb-datepicker #dp [(ngModel)]="myDate" (select)="selectDate()"></ngb-datepicker>
+    <ngb-datepicker #dp [(ngModel)]="myDate" (select)="selectDate()"></ngb-datepicker>
   </div>
-  <div class="jumbotron">
-    <h1 class="display-3">{{result.title}}</h1>
-    <p class="lead">{{result.date}}</p>
-    <hr class="my-2">
-    <div class="container-fluid text-center">
-        <img [src]="result.url" width="100%" alt="">
-      
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let apod of apods">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{apod.title}}</h4>
+          <div class="container-fluid text-center">
+            <img [src]="apod.url" width="100%" alt="" *ngIf="apod.media_type==='image'">
+            <youtube-player [videoId]="id" [playerVars]="playerVars" *ngIf="apod.media_type==='video'">
+            </youtube-player>
+
+          </div>
+          <p class="lead">{{apod.date}}</p>
+          <hr class="my-2">
+          <p class="card-text">{{apod.explanation}}</p>
+
+        </div>
+      </div>
     </div>
-    <p>{{result.explanation}}</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" [href]="result.hdurl" role="button">{{result.title}}</a>
-    </p>
   </div>
+
 </div>
 <p>
   {{result | json}}

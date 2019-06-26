@@ -14,6 +14,7 @@ import { BeersService } from './services/beers.service';
 import { ApodComponent } from './components/apod/apod.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { AlcoholPipe } from './pipes/alcohol.pipe';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AlcoholPipe } from './pipes/alcohol.pipe';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    NgxYoutubePlayerModule
   ],
   providers: [
     CalculatorService,
