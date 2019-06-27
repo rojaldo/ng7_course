@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title" [innerHTML]="card.question"></h4>
+    <button type="button" [class]="getClass(i)" *ngFor="let answer of card.answers; index as i"
+      [innerHTML]="answer" (click)="response(i)"></button>
+  </div>
+</div>
