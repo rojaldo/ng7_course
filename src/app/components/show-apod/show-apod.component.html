@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{content.title}}</h4>
+    <div class="container-fluid text-center">
+      <img [src]="content.imageURL" width="100%" alt="" *ngIf="content.mediaType==='image'">
+      <youtube-player [videoId]="id" [playerVars]="playerVars" *ngIf="content.mediaType==='video'">
+      </youtube-player>
+
+    </div>
+    <p class="lead">{{content.date}}</p>
+    <hr class="my-2">
+    <p class="card-text">{{content.explanation}}</p>
+
+  </div>
+</div>

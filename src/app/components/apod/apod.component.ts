@@ -1,6 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from 'src/app/services/beers.service';
 
+export interface AbstractProduct {
+  date: string;
+  explanation: string;
+  title: string;
+  mediaType: string;
+}
+
+export class ConcreteProductImage implements AbstractProduct {
+  date: string;
+  explanation: string;
+  title: string;
+  mediaType: string;
+  imageURL: string;
+
+  constructor(json: any) {
+    this.date = json.date;
+    this.title = json.title;
+    this.explanation = json.explanation;
+    this.mediaType = json.media_type;
+    this.imageURL = json.url;
+  }
+
+}
+
+export class ConcreteProductVideo implements AbstractProduct {
+  date: string;
+  explanation: string;
+  title: string;
+  mediaType: string;
+  videoURL: string;
+
+  constructor(json: any) {
+    this.date = json.date;
+    this.title = json.title;
+    this.explanation = json.explanation;
+    this.mediaType = json.media_type;
+    this.videoURL = json.url;
+  }
+}
+
 @Component({
   selector: 'app-apod',
   templateUrl: './apod.component.html',
@@ -10,13 +50,7 @@ export class ApodComponent implements OnInit {
 
   result: any;
   myDate: any;
-  apods: any[] = [];
-
-  playerVars = {
-    cc_lang_pref: 'en'
-  };
-
-  id = '';
+  apods: AbstractProduct[] = [];
 
   constructor(private service: BeersService) { }
 
@@ -28,17 +62,19 @@ export class ApodComponent implements OnInit {
 
   getData(data) {
     this.result = data;
-    this.apods.push(data);
-    if (this.result.media_type === 'video') {
-      this.id = this.youtube_parser(this.result.url);
-    }
+    this.apods.push(this.createProduct(data));
   }
 
-  youtube_parser(url) {
-    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[7].length === 11) ? match[7] : false;
+  createProduct(json: any): AbstractProduct {
+    if (json.media_type === 'image') {
+      return new ConcreteProductImage(json);
+    } else if (json.media_type === 'video') {
+      return new ConcreteProductVideo(json);
+    }
+    return null;
   }
+
+
 
   selectDate() {
     const baseURL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';

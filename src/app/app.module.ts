@@ -15,6 +15,8 @@ import { ApodComponent } from './components/apod/apod.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { AlcoholPipe } from './pipes/alcohol.pipe';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { ShowApodComponent } from './components/show-apod/show-apod.component';
+import { TrivialComponent } from './components/trivial/trivial.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     KeyboardComponent,
     BeersComponent,
     ApodComponent,
-    AlcoholPipe
+    AlcoholPipe,
+    ShowApodComponent,
+    TrivialComponent
   ],
   imports: [
     BrowserModule,
